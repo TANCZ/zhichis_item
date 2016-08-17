@@ -52,6 +52,21 @@
 		}
 
 		//根据提交条件进行查询
+
+		public function seltype(){
+			$data = M('order_state');
+			//排除待付款订单状态
+			//$wh = array('order_state_id not in (1)');
+			//
+			$list = $data
+			//-> where($wh)
+			-> select();
+			$this -> assign('list',$list);
+		}
+
+
+		//查看订单详情
+
 		public function whorderlist(){
 			$list = M('order');
 			//获取条件
@@ -110,7 +125,7 @@
 					-> count();
 
 			$p = getpage($count,5);
-			
+
 			//查询订单信息
 			$rs = $list -> table('zhichis_order o')
 					-> join('right join zhichis_order_sub sub on o.order_number = sub.order_number')
@@ -120,8 +135,8 @@
 					-> field('o.order_id,o.order_number,u.user_nickname,p.pro_name,o.order_time,sub.order_sub_number,o.order_price,sub.order_sub_ispay,sub.order_sub_istake,sub.order_sub_issend,r.rec_deta,r.rec_id')
 					-> limit($p->firstRow, $p->listRows)
 					-> where($wh)
-					-> select();	
-			// 赋值数据集	
+					-> select();
+			// 赋值数据集
 			$this -> assign('empty','<tr class="content" align="center"><td colspan="12" style="color:red;" bgcolor="#FFFFFF">&nbsp;<b>暂时没有订单哦！亲~</b></td></tr>');
 			$this -> assign('select', $rs);
 
@@ -132,8 +147,8 @@
 			$this -> display('orderlist');
 		}
 
+		//查询订单状态表F 
 
-		//查看订单详情
 		public function ordersub(){
 			$list = M('order');
 
@@ -161,21 +176,10 @@
 				$this -> error('出现未知错误,请重启计算机！');
 			}
 			$this -> display();
-		}    
-
-		//查询订单状态表F 
-		public function seltype(){
-			$data = M('order_state');
-			//排除待付款订单状态
-			//$wh = array('order_state_id not in (1)');
-			//
-			$list = $data 
-			//-> where($wh) 
-			-> select();
-			$this -> assign('list',$list);
 		}
 
 		//发货
+
 		public function sendorder()
 		{
 			//向订单物流表添加信息
@@ -231,13 +235,14 @@
 		{
 			$order = M('order');
 
-			$wh = array();
+			$wh = array('re.red_isuse' => '1');
 
 			$count = $order -> table('zhichis_order o')
 				-> join('right join zhichis_order_sub sub on sub.order_number = o.order_number')
 				-> join('zhichis_pro p on p.pro_id = sub.pro_id')
-				-> join('zhichis_redeemcode re on re.pro_id = p.pro_id')
+				-> join('zhichis_redeemcode re on re.order_number = o.order_number')
 				-> join('zhichis_recaddress rec on rec.rec_id = re.red_ressid')
+				->where($wh)
 				-> count();
 /*				echo $order -> getlastsql();
 				echo "<br>".$count;
@@ -247,9 +252,10 @@
 			$rs = $order -> table('zhichis_order o')
 				-> join('right join zhichis_order_sub sub on sub.order_number = o.order_number')
 				-> join('zhichis_pro p on p.pro_id = sub.pro_id')
-				-> join('zhichis_redeemcode re on re.pro_id = p.pro_id')
+				-> join('zhichis_redeemcode re on re.order_number = o.order_number')
 				-> join('zhichis_recaddress rec on rec.rec_id = re.red_ressid')
-				-> field(' o.order_number,o.order_time,')
+				-> field(' o.order_number,o.order_time,p.pro_name,p.pro_price,p.pro_spec,sub.order_sub_ispay,sub.order_sub_issend,sub.order_sub_istake,rec.rec_name,rec.rec_phone,rec.rec_province,rec.rec_city,rec.rec_area,rec.rec_deta,re.red_code')
+				-> where($wh)
 				-> limit($p->firstRow, $p->listRows)
 				-> select();
 
