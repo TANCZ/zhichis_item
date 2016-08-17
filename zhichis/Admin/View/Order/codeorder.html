@@ -53,7 +53,7 @@
                 <td colspan="4" bgcolor="#FFFFFF" class="title info" align="center">当前登录用户：{:session('nickname')}</td>
             </tr>
             <tr>
-                <td colspan="4" bgcolor="#FFFFFF" class="title active" align="center">订单信息</td>
+                <td colspan="4" bgcolor="#FFFFFF" class="title active" align="center">兑换码订单信息</td>
             </tr>
             <tr class="title active">
                 <td bgcolor="#FFFFFF" width="40">单号</td>
@@ -77,7 +77,7 @@
                             <eq name="list.order_sub_issend" value="0">
                                 <input type="hidden" value="{$list.pro_id}" id="pro_id">
                                 <input type="hidden" value="{$list.rec_id}" id="rec_id">
-                                <input type="hidden" value="{$list.rec_area}" id="rec_area|subtext=10">
+                                <input type="hidden" value="{$list.rec_province}{$list.rec_city}{$list.rec_area}{$list.rec_deta}" id="rec_data">
                                 <button value="{$list.order_number}" class="send btn btn-primary" data-toggle="modal" data-target="#myModal">发货</button>&nbsp;
                             </eq>
                         </eq> 
@@ -156,7 +156,7 @@
          <div class="modal-footer">
             <button type="button" class="btn btn-default" 
                data-dismiss="modal">
-               关闭
+               关闭啊
             </button>
          </div>
 
@@ -164,7 +164,9 @@
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script>
-   $(function () { $('#myModal').modal('hide')})});
+   $(function () { 
+    $('#myModal').modal('hide');
+});
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -172,7 +174,7 @@
             var bu = $(this).attr("value");  
             $("#order_id").val(bu);
             var rec_id = $('#rec_id').attr("value");       //地址编号
-            var rec_area = $('#rec_area').attr("value");  //详细地址
+            var rec_area = $('#rec_data').attr("value");  //详细地址
             var pro_id =$('#pro_id').attr("value");       //购买产品
             $("#l_addressfull").val(rec_area);
             $("#l_addressid").val(rec_id);

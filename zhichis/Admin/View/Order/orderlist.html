@@ -87,7 +87,7 @@
                             <eq name="list.order_sub_issend" value="0">
                                 <input type="hidden" value="{$list.pro_id}" id="pro_id">
                                 <input type="hidden" value="{$list.rec_id}" id="rec_id">
-                                <input type="hidden" value="{$list.rec_area}" id="rec_area|subtext=10">
+                                <input type="hidden" value="{$list.rec_province}{$list.rec_city}{$list.rec_area}{$list.rec_deta}" id="rec_data">
                                 <button value="{$list.order_number}" class="send btn btn-primary" data-toggle="modal" data-target="#myModal">发货</button>&nbsp;
                             </eq>
                         </eq> 
@@ -182,7 +182,7 @@
             var bu = $(this).attr("value");  
             $("#order_id").val(bu);
             var rec_id = $('#rec_id').attr("value");       //地址编号
-            var rec_area = $('#rec_area').attr("value");  //详细地址
+            var rec_area = $('#rec_data').attr("value");  //详细地址
             var pro_id =$('#pro_id').attr("value");       //购买产品
             $("#l_addressfull").val(rec_area);
             $("#l_addressid").val(rec_id);
