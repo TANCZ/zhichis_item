@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订单列表</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="<?php echo ADMIN_CSS_URL?>table.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo ADMIN_CSS_URL?>main.css">
+    <script src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+    <script src="__PUBLIC__/js/transition.js"></script>
+    <script src="__PUBLIC__/js/modal.js"></script>
+</head>
+<body>
+    <div class="main">
+        <h3 align="center">订单列表(view)</h3>
+        <div style="height:50px;">
+            <FORM method="POST" action="__URL__/whorderlist">
+            <div class="form-inline">
+                <!--订单号-->
+                <div class="form-group">
+                    <label>订单号</label>
+                    <input type="text" class="form-control" name="orderid" placeholder="请输入订单编号">
+                </div>
+                <!--用户名称-->
+                <div class="form-group">
+                    <label>购买用户</label>
+                    <input type="text" class="form-control" name="username" placeholder="请输入用户名称">
+                </div>
+                <!--产品-->
+                <div class="form-group">
+                    <label>购买商品</label>
+                    <input type="text" class="form-control" name="proname" placeholder="请输入商品名称">
+                </div>
+                <!--状态-->
+                <div class="form-group">
+                    <label>订单状态</label>
+                    <select name="stateId" class="form-control">
+                        <option value="">请选择...</option>
+                        <volist name="list" id="list">
+                            <option value="{$list.order_state_id}">{$list.order_state_name}</option>
+                        </volist>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-primary">提交</button>
+            </div>
+            </FORM>
+
+        </div>
+        
+
+    <table class="table table-striped table-bordered">
+            <tr>
+                <td colspan="4" bgcolor="#FFFFFF" class="title info" align="center">当前登录用户：{:session('nickname')}</td>
+            </tr>
+            <tr>
+                <td colspan="4" bgcolor="#FFFFFF" class="title active" align="center">订单信息</td>
+            </tr>
+            <tr class="title active">
+                <td bgcolor="#FFFFFF" width="40">编号</td>
+                <td bgcolor="#FFFFFF" width="40">单号</td>
+                <td bgcolor="#FFFFFF" width="40">产品</td>
+                <td bgcolor="#FFFFFF" width="100">时间</td>
+                <td bgcolor="#FFFFFF" width="80">是否发货</td>
+                <td bgcolor="#FFFFFF" width="60">收货地址</td>
+                <td bgcolor="#FFFFFF" width="100">操作</td>
+            </tr>
+            <volist name="select" id="list" empty="$empty">
+                <tr class="content" align="center">
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.order_id}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.order_number}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.pro_name}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.order_time|strtotime|date='Y-m-d',###}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{:($list[order_sub_issend] == 1 ) ? "已发货" : "未发货"}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.rec_data|subtext=10}</td>
+                    <td bgcolor="#FFFFFF" id="oper">&nbsp;
+                        <eq name="list.order_sub_ispay" value="1">
+                            <eq name="list.order_sub_issend" value="0">
+                                <input type="hidden" value="{$list.pro_id}" id="pro_id">
+                                <input type="hidden" value="{$list.rec_id}" id="rec_id">
+                                <input type="hidden" value="{$list.rec_area}" id="rec_area|subtext=10">
+                                <button value="{$list.order_number}" class="send btn btn-primary" data-toggle="modal" data-target="#myModal">发货</button>&nbsp;
+                            </eq>
+                        </eq> 
+                        <eq name = "list.order_sub_issend" value= "1">
+                            <eq name="list.order_sub_istake" value="0">
+                                <a href="__URL__/sqllogistics/orderId/{$list.order_number}" target="center">查看物流</a>&nbsp;
+                            </eq>
+                        </eq>
+                            <a href="__URL__/ordersub/orderId/{$list.order_number}" target="center">详情</a>
+                    </td>
+                </tr>
+            </volist>
+
+            <tr class="content">
+                <!--<td colspan="3" bgcolor="#FFFFFF">&nbsp;{$page}</td>-->
+                <td colspan="12" bgcolor="#FFFFFF" style="text-align:center;"><div class="pages">
+                    {$page}
+                </div></td>  
+            </tr>
+        </table>
+    </div>
+
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" 
+               aria-hidden="true">×
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               发货（Modal）
+            </h4>
+         </div>
+         <div class="modal-body">
+            <form method="POST" action="__URL__/sendorder" class="form-horizontal" role="form">
+                <div class="form-group" align="center">
+                    <label for="inputEmail3" class="col-sm-2 control-label">订单单号</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="order_id" name="order_id" required>
+                    </div>
+                </div>
+             
+                <div class="form-group" align="center">
+                    <label for="inputEmail3" class="col-sm-2 control-label">收货地址</label>
+                    <div class="col-xs-3">
+                        <input type="hidden" class="form-control" id="l_proid" name="l_proid" required readonly>
+                        <input type="text" class="form-control" id="l_addressfull" name="l_addressfull" required readonly>
+                        <input type="hidden" class="form-control" id="l_addressid" name="l_addressid" required>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group" align="center">
+                    <label for="inputEmail3" class="col-sm-2 control-label">快递公司</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="sender" name="sender"required>
+                    </div>
+                </div>
+                <div class="form-group" align="center">
+                    <label for="inputEmail3" class="col-sm-2 control-label">快递单号</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="send_code" name="sebd_code" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-3">
+                      <button type="submit" class="btn btn-primary">发货</button>
+                    </div>
+                </div>
+            </form>
+         </div>
+
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">
+               关闭
+            </button>
+         </div>
+
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+   $(function () { $('#myModal').modal('hide')})});
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".send").click(function () {
+            var bu = $(this).attr("value");  
+            $("#order_id").val(bu);
+            var rec_id = $('#rec_id').attr("value");       //地址编号
+            var rec_area = $('#rec_area').attr("value");  //详细地址
+            var pro_id =$('#pro_id').attr("value");       //购买产品
+            $("#l_addressfull").val(rec_area);
+            $("#l_addressid").val(rec_id);
+            $("#l_proid").val(rec_id);
+        });
+    });
+</script>
+</body>
+</html>

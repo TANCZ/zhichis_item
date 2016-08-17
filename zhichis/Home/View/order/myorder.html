@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的订单</title>
+<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<script type="text/javascript" src=""></script>
+<link rel="stylesheet" href="__PUBLIC__/css/myorder.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/css/cart.css"/>
+<style type="text/css">
+    a {color: black;}
+</style>
+</head>
+
+<body>
+<volist name="select" id="list" empty="$empty">
+<!-- 订单 -->
+<a href="">
+<div class="order_01">
+   <div class="container">
+      <ul>
+        <li class="li1">订单号:</li>
+        <li class="li2">{$list.order_number}</li>
+        <eq name="list.order_sub_ispay" value="0">
+            <li class="li4">待付款</li>
+        </eq>
+        <eq name="list.order_sub_ispay" value="1">
+          <eq name="list.order_sub_issend" value="0">
+            <li class="li4">待发货</li>
+          </eq>
+        </eq>
+        <eq name="list.order_sub_issend" value="1">
+          <eq name="list.order_sub_istake" value="0"></eq>
+          <li class="li4">配送中...</li>
+        </eq>
+        <eq name="order_sub_istake" value="1">
+          <li class="li4">配送中...</li>
+        </eq>
+        <li class="li3">交易状态:</li>
+      </ul>     
+      <div class="clearfix"></div><!--清楚浮动-->
+      <img src="__PUBLIC__/ProUpload/{$list.pro_img}">     
+      <ol>
+        <li class="ol1">{$list.pro_name}</li>
+        <li class="ol2">规格:{$list.pro_spec}</li>
+        <li class="ol3">数量：{$list.order_sub_number}</li>
+        <li class="ol4">
+          <p>￥{$list.pro_price}</p>
+          <span class="ol5">小计：￥{$number}</span>
+        </li>
+      </ol>
+        
+   </div>
+</div>
+</a>
+<div class="clearfix"></div><!--清楚浮动-->
+</volist>
+<!-- <div class="order_02">
+   <div class="container">
+        <ul>
+        <li class="li1">订单号:</li>
+        <li class="li2">000000003</li>
+        <li class="li4">立即付款</li>
+        <li class="li3">交易状态:</li>
+      </ul>     
+      <div class="clearfix"></div>清楚浮动
+      <img src="__PUBLIC__/img/myorder2.jpg">     
+      <ol>
+        <li class="ol1">荆州鱼糕</li>
+        <li class="ol2">规格:1斤一箱</li>
+        <li class="ol3">运费：￥0.00</li>
+        <li class="ol4">
+          <p>￥138.00   ×2</p>
+          <span class="ol5">小计：￥53.00</span>
+        </li>
+      </ol>
+   </div>
+</div>
+
+<div class="clearfix"></div>清楚浮动
+
+<div class="order_01">
+   <div class="container">
+        <ul>
+        <li class="li1">订单号:</li>
+        <li class="li2">000000003</li>
+        <li class="li4">紧张打包配送中</li>
+        <li class="li3">交易状态:</li>
+      </ul>     
+      <div class="clearfix"></div>清楚浮动
+      <img src="__PUBLIC__/img/myorder2.jpg">     
+      <ol>
+        <li class="ol1">荆州鱼糕</li>
+        <li class="ol2">规格:1斤一箱</li>
+        <li class="ol3">运费：￥0.00</li>
+        <li class="ol4">
+          <p>￥138.00   ×2</p>
+          <span class="ol5">小计：￥53.00</span>
+        </li>
+      </ol>
+   </div>
+</div>
+
+<div class="clearfix"></div>清楚浮动
+
+<div class="order_01">
+    <div class="container">
+        <ul>
+            <li class="li1">订单号:</li>
+            <li class="li2">000000003</li>
+            <li class="li4">物流配送中</li>
+            <li class="li3">交易状态:</li>
+        </ul>
+        <div class="clearfix"></div>清楚浮动
+        <img src="__PUBLIC__/img/myorder2.jpg">
+        <ol>
+            <li class="ol1">荆州鱼糕</li>
+            <li class="ol2">规格:1斤一箱</li>
+            <li class="ol3">运费：￥0.00</li>
+            <li class="ol4">
+                <p>￥138.00   ×2</p>
+                <span class="ol5">小计：￥53.00</span>
+            </li>
+        </ol>
+    </div>
+</div> -->
+
+
+
+
+<script src="__PUBLIC__/js/jquery-2.2.2.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+</body>
+</html>

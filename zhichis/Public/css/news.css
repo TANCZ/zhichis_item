@@ -1,0 +1,25 @@
+@charset "utf-8";
+html{
+    font-size: 62.5%;
+}
+body,h1,h2,h3,p,ul,ol,form,fieldset,figure,input,i,em,input,textarea,img{ margin: 0;padding: 0;}
+body{ font-family:"MicrosoftYaHei";background: #efeff4;width: 100vw;}
+ul,ol{ list-style: outside none none;}
+a{ text-decoration: none;}
+figure,li,textarea{ box-sizing: border-box;}
+.none{ display: none;}
+em,strong,i,span,div{font-style: normal;}
+img{ display: block;max-width: 100%;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;}
+.x_hide{ display: none;}
+.fl{ float: left; }
+.fr{ float: right; }
+.zw{display: block;height: 25vw;margin-top: 2vw}
+
+.page{
+    width: 100vw;
+}
+.page img{
+    width: 100vw;
+    margin: 0 auto;
+}

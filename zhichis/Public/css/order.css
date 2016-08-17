@@ -1,0 +1,225 @@
+/*2016/6/10 11:53*/
+@charset "utf-8";
+
+body,h1,h2,h3,p,ul,ol,form,fieldset,figure,input{ margin: 0;padding: 0;}
+body{ background:#efeff4;font-family:"MicrosoftYaHei";}
+ul,ol{ list-style: outside none none;}
+a{ text-decoration: none;}
+figure,li,strong{ box-sizing: border-box;}
+.none{ display: none;}
+img{ display: block;max-width: 100%;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;}
+.zw{display: block;height: 17vmin;}
+.x_hide{ display: none;}
+.fl{ float: left; }
+.fr{ float: right; }
+
+.top{position:relative;width:100%;height:10vmin;background-color:#000000;}
+.top .headimg{position:absolute;top:1vmin;left:2vmin;height:8vmin;border-radius:50em;}
+.top .petname{position:absolute;left:13vmin;line-height:10vmin;color:#EFEAEA;font-family:"微软雅黑";font-size:3.5vmin;}
+.top .a_order{position:absolute;right:3vmin;line-height:10vmin;color:#EFEAEA;font-family:"微软雅黑";font-size:3.5vmin;}
+
+.header{
+	position: relative;
+}
+.header .bg{
+	width: 100%;
+	height: 100%;
+}
+.user{
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -15vmin;
+}
+.yuan img{
+	width: 30vmin;
+	height: 30vmin;
+	border-radius: 50%;
+	border:1vmin solid #fff;
+}
+
+.user_name{
+	font-size: 6vmin;
+	width: 100%;
+	display: inline-block;
+	color: #fff;
+	margin-top: 2vh;
+	text-align: center;
+}
+/*.user_name img{
+	display: inline-block;
+	width: 4vmin;
+	margin-left: 2vmin;
+}*/
+.content{
+	background:#fff;
+}
+.content li{
+	width: 25%;
+	display: inline-block;
+	font-size: 0;
+	border-left: 1px solid #ccc;
+}
+
+.content a{
+	height: 12vmin;
+	line-height: 12vmin;
+	color: #888;
+	font-size: 4vmin;
+	display: block;
+	text-align: center;
+}
+.content a:hover{
+	background: #eee;
+}
+
+/* 选项卡 */
+#box_ul02,#box_ul03,#box_ul04{
+	display:none;
+	}
+
+
+.cont1,.cont2,.cont3,.cont4,.cont5,.cont6{
+	margin-top: 2vmin;
+	border-top: 0px solid #ccc;
+	border-bottom: 0px solid #ccc;
+}
+.cont1 img,.cont2 img,.cont3 img{
+	display: inline-block;
+	width: 7vmin;
+}
+.cont4 .text img,.cont5 .text img,.cont6 .text img{
+	display: inline-block;
+	width:6vmin;
+	}
+.cont1{ background:#fff;}
+.cont1 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p5.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 20%;
+	color:#000000;
+}
+.cont1 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:4vmin 5vmin 0 0;
+	 color:#646363;
+	}
+.cont1 .text1 a{ 
+     color:#646363;
+    }
+
+.cont2{ background:#fff;}
+.cont2 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p4.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 20%;
+	color:#000000;
+}
+.cont3{ background:#fff;}
+.cont3 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p6.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 20%;
+	
+}
+.cont3 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:4vmin 5vmin 0 0;
+	 -webkit-appearance:none;
+	}
+
+.text a{
+	color: #000000;
+}
+.cont4{ background:#fff;}
+.cont4 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p1.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 15%;
+	
+}
+.cont4 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:4vmin 5vmin 0 0;
+	}
+.cont4 .text1 a{ 
+     color:#646363;
+    }
+.cont5{ background:#fff;}
+.cont5 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p3.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 20%;
+	
+}
+.cont5 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:4vmin 5vmin 0 0;
+	}
+.cont5 .text1{ 
+     color:#646363;
+    }
+.cont6{ background:#fff; margin-bottom:20vmin;}
+.cont6 .text{
+	display: inline-block;
+	height: 13vmin;
+	line-height: 14vmin;
+	margin-left: 3vmin;
+	font-size: 4vmin;
+	background: url(../img/p2.png) no-repeat left 55%;
+	text-indent: 12vmin;
+	background-size: 15%;
+	
+}
+.cont6 .text a span{
+	color:#ed604c;
+	}
+.cont6 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:2vmin 5vmin 0 0;
+	}
+.cont6 .text1 input{
+	background:#ed604c;
+	border:0;
+	color:#FFFFFF;
+	padding:1vw 7vw;
+	font-size:5vmin;
+	-webkit-appearance:none;
+	}
+
+@media all and (orientation : landscape){
+	.user{
+		top: 30%;
+	}
+}

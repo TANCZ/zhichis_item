@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>修改用户</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/js/bootstrap.min.js">
+	<link rel="stylesheet" type="text/css" href="<?php echo ADMIN_CSS_URL?>main.css">
+
+</head>
+<body>
+	<div class="main">
+		<h3 align="center">修改用户(view)</h3>
+		<form class="form-horizontal" method="POST" action="__URL__/updata" style="width:1000px">
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">昵称：</label>
+			    <div class="col-sm-3">
+			      <input type="text" class="form-control" name="nickname" value="{$vo.nickname}" required>
+			    </div>
+			</div>
+			
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">帐号：</label>
+			    <div class="col-sm-3">
+			      <input type="text" class="form-control" name="username" value="{$vo.username}" required>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">邮箱：</label>
+			    <div class="col-sm-3">
+			      <input type="email" class="form-control" name="email" value="{$vo.email}" required>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">号码：</label>
+			    <div class="col-sm-3">
+			      <input type="text" class="form-control" name="mobile" value="{$vo.mobile}" required>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-primary">提交</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

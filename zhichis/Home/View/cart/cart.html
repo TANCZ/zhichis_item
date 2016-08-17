@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/cart.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/fastclick.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/zhichis.js"></script>
+</head>
+<body>
+    <form method="POST" action="__URL__/Nowpay" onsubmit="return ">
+        <div class="zw1"></div>
+        <!--header-->
+        <header class="c-header" style="z-index: 20;">
+            <p class="Del-btn">删除选中</p>
+        </header>
+        <!--container-->
+        <div class="container">
+            <!--content-->
+            <volist name="select" id="list" empty="$empty">
+                <div class="content mg">
+                    <div class="check">
+                        <label class="check-label"><span></span><input type="checkbox" name="subChk[]" class="check-shoping chk" value="{$list.pro_id}"/><input type="text" class="hide" value="1"></label>
+                    </div>
+                    <img class="shoping-img" src="__PUBLIC__/ProUpload/{$list.pro_img}" />
+                    <div class="shoping-text">
+                        <h2 class="shoping-title">{$list.pro_name}</h2>
+                        <p class="shoping-p1">规格:{$list.pro_spec}</p>
+                        <p class="shoping-p2">￥<span class="each">{$list.pro_price}</span></p>
+                        <p class="shoping-p3">数量: <span class="pr-min">&#8211;</span><input class="pr-num" type="text" name="number[{$list.pro_id}]" value="{$list.order_sub_number}"/><span class="pr-add">+</span><span class="tot"></span></p>
+                        <input type="hidden" id="ordernumber" name="ordernumber" value="{$list.order_number}">
+                    </div>
+                </div>  
+            </volist>
+        </div>
+
+        <div class="msgContent">
+            <p class="msg"></p>
+        </div>
+
+        <div class="zw"></div>
+        <!--footer-->
+        <footer class="c-footer">
+
+            <div class="check-all">
+                <label><span></span><input type="checkbox" name="chkAll" class="check-shoping" id="checkAll"/></label><i>全选</i>
+            </div>
+
+            <div class="much">
+                <input type="hidden" id="total" class="price" name="total">
+                <p class="much-p1">总价:<span>￥<span class="price">0.00</span></span></p>
+                <p class="much-p2">(共<span class="clo">0</span>件)</p>
+            </div>
+            <button class="buyIt">结算</button>
+        </footer>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('.buyIt').click(function(){
+                if($('.check-shoping').is(':checked')){
+                    return true;
+                }else{
+                    $('.msgContent').show(200).delay(1000).hide(200);
+                    $('.msg').html('没有选择商品');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("checkAll");
+            var aInput = document.getElementsByClassName("chk");
+            oBtn.onclick = function(){
+                for(var i = 0; i < aInput.length; i++){
+                    if(oBtn.checked == true){
+                        aInput[i].checked = true;
+                        GetCount();
+                    }else{
+                        aInput[i].checked = false;
+                        GetCount();
+                    }
+                }
+            }
+        };
+        //全选按钮点击事件
+        $('#checkAll').click(function(){
+            if($(this).is(':checked')){    //全选按钮被选中
+                $('.chk').each(function(){  //遍历选项
+                    $(this).attr('checked',true);  //选项被选中
+                    $(this).prev("span").css({  //checkbox label样式
+                        'background':'url("__PUBLIC__/img/check-style.png") no-repeat',
+                        'background-size':'8vw 8vw'
+                    });
+                });
+            }else{  //否则
+                $('.chk').each(function(){  //遍历选项
+                    $(this).attr('checked',false);  //取消选中
+                    $(this).prev("span").css({  //checkbox label样式
+                        'background':'url("__PUBLIC__/img/uncheck-style.png") no-repeat',
+                        'background-size':'8vw 8vw'
+                    });
+                });
+            }
+        });
+        $('.content').click(function(){
+            if($('.msgContent').css('display','block')){
+                $('.msgContent').css('display','none');
+            }
+        });
+
+        //复选框点击样式
+        $('.check-shoping').click(function(){
+            if($(this).is(':checked')){
+                $(this).prev("span").css({
+                    'background':'url("__PUBLIC__/img/check-style.png") no-repeat',
+                    'background-size':'8vw 8vw'
+                });
+                GetCount()
+            }else{
+                $(this).prev("span").css({
+                    'background':'url("__PUBLIC__/img/uncheck-style.png") no-repeat',
+                    'background-size':'8vw 8vw'
+                });
+                GetCount()
+            }
+        });
+
+        function GetCount() {
+            var conts = 0;
+            var aa = 0;
+            $(".chk").each(function () {
+                if ($(this).is(":checked")) {
+                    for (var i = 0; i < $(this).length; i++) {
+                        conts += parseInt($(this).next().val());
+                        aa += 1;
+                    }
+                }
+            });
+            $("#total").val((conts).toFixed(2));
+            $('.price').html((conts).toFixed(2));
+            $('.clo').text(aa);
+        }
+    </script>
+</body>
+</html>

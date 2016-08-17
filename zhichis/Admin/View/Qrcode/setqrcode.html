@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>生成二维码</title>
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/js/bootstrap.min.js">
+	<link rel="stylesheet" type="text/css" href="<?php echo ADMIN_CSS_URL?>main.css">
+	<script src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("p").hide();
+			$("#begin").keyup(function(){ //keyup事件处理 
+				
+				$(this).val($(this).val().replace(/\D|^0/g,''));
+				}).bind("paste",function(){ //CTR+V事件处理 
+					$(this).val($(this).val().replace(/\D|^0/g,''));
+			}).css("ime-mode", "disabled"); //CSS设置输入法不可用 
+
+			$("#end").keyup(function(){ //keyup事件处理 
+				$(this).val($(this).val().replace(/\D|^0/g,''));
+				var num = $(this).val();
+				if (num > 50) {
+					alert("只能输入50以内的数字！");
+					$(this).val("");
+				};
+				}).bind("paste",function(){ //CTR+V事件处理 
+					$(this).val($(this).val().replace(/\D|^0/g,''));
+			}).css("ime-mode", "disabled"); //CSS设置输入法不可用 
+		});
+
+	</script>
+</head>
+<body>
+	<div class="main">
+		<h3 align="center">生成二维码</h3>
+		<form method="post" action="__URL__/setqrcode" class="table form-horizontal" style="width:1000px">
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">地址</label>
+			    <div class="col-sm-3">
+			      	<input type="text" class="form-control" name="url" placeholder="二维码地址" required>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">开始数</label>
+			    <div class="col-sm-3">
+			      	<input type="text" class="form-control" id="begin" name="begin" maxlength="5" placeholder="请输入开始数字" required><p>只能输入数字</p>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <label class="col-sm-2 control-label">结束数</label>
+			    <div class="col-sm-3">
+			      	<input type="text" class="form-control" name="end" id="end" placeholder="请输入50以内的数字" maxlength="2" required>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-3">
+			      <button type="submit" class="btn btn-primary">提交</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

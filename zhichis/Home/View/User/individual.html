@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name = "format-detection" content="telephone = no" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+    <script src="__PUBLIC__/jquery-3.0.0.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/order.css">
+	<script type="text/javascript" src="__PUBLIC__/js/zhichis.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/checkorder.css"/>
+    <script type="text/javascript">
+		//选项卡
+		var  initial = 1;
+		function f1(num){
+			  document.getElementById('box_span0'+initial).className = '';
+			  document.getElementById('box_span0'+num).className = 'box_span';
+			  
+			  document.getElementById('box_ul0'+initial).style.display = 'none'
+			  document.getElementById('box_ul0'+num).style.display = 'block';
+			  
+			  initial = num;
+			
+		}
+    </script>
+</head>
+<body>
+<div class="header">
+		<img class="bg" src="__PUBLIC__/img/order1.jpg" alt="">
+	<div class="user">
+		<div class="yuan">
+			<img src="{:session("wx_headimgurl")}" alt="">
+		</div>
+		<div class="user_name">
+			<strong>{:session("wx_nickname")}</strong>
+		</div>
+	</div>
+</div>
+   <!-- 选项卡 -->
+	<div class="content">
+		<ul>
+			<li id="box_span01" class="box_span" onMouseOver="f1(1)"><a href="#">个人信息
+			<li id="box_span02" onMouseOver="f1(2)"><a href="#">待付款
+			<li id="box_span03" onMouseOver="f1(3)"><a href="#">待发货
+			<li id="box_span04" onMouseOver="f1(4)"><a href="#">待收货</li></a>
+		</ul>
+	</div>
+    <!-- 选项卡1 -->
+    <ul id="box_ul01" class="box_ul">   
+        <a href="__APP__/home/order/myorder">
+        <div class="cont1">
+            <div class="text">我的订单</div>
+            <div class="text1">查看全部订单></div>
+        </div>
+        </a>
+        <a href="__APP__/home/user/userinfo">
+        <div class="cont2">
+            <div class="text">个人资料</div>
+        </div>
+        </a>
+        <div class="cont3">
+            <div class="text"><a href="myOrder.html">联系客服</a></div>
+            <div class="text1">0731-82188779 </div>
+        </div>
+        
+        <div class="cont4">
+            <div class="text"><a href="#">我的二维码</a></div>
+            <div class="text1"><a href="#">点击生成专属二维码></a></div>
+        </div>
+        
+        <div class="cont5">
+            <div class="text"><a href="#">我的客户</a></div>
+            <div class="text1">0人</div>
+        </div>
+        
+        <div class="cont6">
+            <div class="text"><a href="#">返现金额<span>&nbsp;0&nbsp;元</span></a></div>
+            <div class="text1"><input type="button" value="申请提现" /></div>
+        </div>
+    </ul>
+    
+    <!-- 选项卡2 -->
+    <ul id="box_ul02">
+        <volist name="select" id="list">
+        	<eq name="list.order_sub_ispay" value="0">
+	        	<div class="container1">
+	            	<img src="__PUBLIC__/ProUpload/{$list.pro_img}" alt="产品图"/>
+	            	<div class="con1-text">
+	               		<h2>{$list.pro_name}</h2>
+	                	<p class="p1">规格:{$list.pro_spec}</p>
+	                	<p class="p2">数量：{$list.order_sub_number}</p>
+	                	<p class="p3">单价：<span>￥{$list.pro_price}</span></p>
+	            	</div>
+	        	</div>
+        	</eq>
+    	</volist>
+    </ul>
+    
+    <!-- 选项卡3 -->
+    <ul id="box_ul03">
+       <volist name="select" id="list">
+       <eq name="list.order_sub_ispay" value="1">
+       <eq name="list.order_sub_issend" value="0">
+	        	<div class="container1">
+	            	<img src="__PUBLIC__/ProUpload/{$list.pro_img}" alt="产品图"/>
+	            	<div class="con1-text">
+	               		<h2>{$list.pro_name}</h2>
+	                	<p class="p1">规格:{$list.pro_spec}</p>
+	                	<p class="p2">数量：{$list.order_sub_number}</p>
+	                	<p class="p3">单价：<span>￥{$list.pro_price}</span></p>
+	            	</div>
+	        	</div>
+	        	</eq>
+	        	</eq>
+    	</volist>
+    </ul>
+     
+    <!-- 选项卡4-->
+    <ul id="box_ul04">
+       <volist name="select" id="list">
+        	<eq name="list.order_sub_issend" value="1">
+        		<eq name="order_sub_istake" value="0">
+	        	<div class="container1">
+	            	<img src="__PUBLIC__/ProUpload/{$list.pro_img}" alt="产品图"/>
+	            	<div class="con1-text">
+	               		<h2>{$list.pro_name}</h2>
+	                	<p class="p1">规格:{$list.pro_spec}</p>
+	                	<p class="p2">数量：{$list.order_sub_number}</p>
+	                	<p class="p3">单价：<span>￥{$list.pro_price}</span></p>
+	            	</div>
+	        	</div>
+	        	</eq>
+        	</eq>
+    	</volist>
+    </ul>
+    
+
+    
+    <script>
+      $(function(){
+		  $('s').click()
+	  })
+    </script>
+</body>
+</html>

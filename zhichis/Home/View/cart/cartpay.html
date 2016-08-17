@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>确认订单</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/animate.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/checkorder.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/temp.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/fastclick.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/zhichis.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/Area.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/AreaData_min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '43', '0', '0');
+        });
+
+        //得到地区码
+        function getAreaID(){
+            var area = 0;
+            if($("#seachdistrict").val() != "0"){
+                area = $("#seachdistrict").val();
+            }else if ($("#seachcity").val() != "0"){
+                area = $("#seachcity").val();
+            }else{
+                area = $("#seachprov").val();
+            }
+            return area;
+        }
+
+        function showAreaID() {
+            //地区码
+            var areaID = getAreaID();
+            //地区名
+            var areaName = getAreaNamebyID(areaID) ;
+            alert("您选择的地区码：" + areaID + "      地区名：" + areaName);
+        }
+
+        //根据地区码查询地区名
+        function getAreaNamebyID(areaID){
+            var areaName = "";
+            if(areaID.length == 2){
+                areaName = area_array[areaID];
+            }else if(areaID.length == 4){
+                var index1 = areaID.substring(0, 2);
+                areaName = area_array[index1] + " " + sub_array[index1][areaID];
+            }else if(areaID.length == 6){
+                var index1 = areaID.substring(0, 2);
+                var index2 = areaID.substring(0, 4);
+                areaName = area_array[index1] + " " + sub_array[index1][index2] + " " + sub_arr[index2][areaID];
+            }
+            return areaName;
+        }
+
+
+    </script>
+        <script type="text/javascript">
+        //调用微信JS api 支付
+        function jsApiCall()
+        {
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                <?php echo $jsApiParameters; ?>,
+                function(res){
+                    WeixinJSBridge.log(res.err_msg);
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                           // message: "微信支付成功!",
+                           window.location.replace("http://zhichis.com/zhichis_item/zhichis/home/cart/success");
+                      }else if (res.err_msg == "get_brand_wcpay_request:cancel") {  
+                        alert('取消支付');
+                          //message: "已取消微信支付!"
+                       } 
+                    //alert(res.err_code+res.err_desc+res.err_msg);
+                    //alert("{$jsApiParameters}");
+                }
+            );
+        }
+        function callpay()
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="zw1"></div>
+
+    <div class="o-header" style="border: none;position: fixed;left: 0;top: 0;z-index: 20;border-bottom: 1px solid #b2b2b2;">
+        <p>商品信息</p>
+    </div>
+    <volist name="select" id="list">
+        <div class="container1">
+            <img src="__PUBLIC__/ProUpload/{$list.pro_img}" alt="产品图"/>
+            <div class="con1-text">
+                <h2>{$list.pro_name}</h2>
+                <p class="p1">规格:{$list.pro_spec}</p>
+                <p class="p2">数量：{$list.order_sub_number}</p>
+                <p class="p3">单价：<span>￥{$list.pro_price}</span></p>
+            </div>
+            <!--<p class="more-btn"><a href="__URL__/outpro/ordernumber/{$list.order_number}/proid/{$list.pro_id}">×</a></p>
+            -->
+        </div>
+    </volist>
+    <div class="o-header" style="margin-top: 2vw;">
+        <p>支付方式</p>
+    </div>
+    <div class="container2">
+        <div class="radChk">
+            <input type="radio" id="pay1" name="subChk" class="check-shoping"/>
+            <label class="check-label" for="pay1">微信支付</label>
+        </div>
+        <div class="radChk">
+            <input type="radio" id="pay2" name="subChk" class="check-shoping" disabled="disabled" />
+            <label class="check-label" for="pay2">朋友代付(暂未开通)</label>
+        </div>
+    </div>
+
+    <div class="o-header-sp">
+        <p>收货信息</p>
+        <input class="arsBox" type="button" value="添加收货地址"/>
+    </div>
+        <eq name="rs.rec_isdef" value="1"> 
+            <div class="container3">
+                <p class="arsBox">{$rs.rec_province}{$rs.rec_city}{$rs.rec_area}{$rs.rec_deta}</p>
+            </div>
+            <else/>
+                <div class="container3">
+                    <p class="arsBox">点击编辑收货地址</p>
+                </div>
+        </eq>
+    <div class="container4">
+        <form action="">
+            <textarea name="message" id="message" placeholder="订单备注……"></textarea>
+        </form>
+    </div>
+    <div class="container5">
+        <input type="hidden" name="order_number" value="{$data.order_number}">
+        <input type="hidden" name="price" value="{$data.number}">
+        <p class="much-p1">总价:<span>￥<span class="">{$data.number}</span></span></p><!-- price -->
+        <input type="submit" onclick="callpay()" value="提交"/>
+    </div>
+
+    <div class="zw"></div>
+
+    <!--隐藏-->
+    <div class="zhemu">
+    </div>
+    <div class="addNewArs">
+        <form  method="POST" action="__URL__/add">
+        <header class="newArs-title"><span>新增地址<img id="off" src="__PUBLIC__/img/off-btn.png" alt=""/></span></header>
+        <div class="name">
+            <p>收 货 人：</p>
+            <input type="text" class="Arsinput needsclick" name="rec_name">
+        </div>
+        <fieldset id="city_china">
+            <div class="name">
+                <p>省 / 市：</p>
+                <select id="seachprov" name="rec_provinceid" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>
+            </div>
+            <div class="name">
+                <p>市 / 区：</p>
+                <select id="seachcity" name="rec_cityid" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"></select>
+            </div>
+            <div class="name">
+                <p>县 / 区：</p>
+                <select id="seachdistrict" name="rec_areaid"></select>
+            </div>
+        </fieldset>
+            <input type="hidden" id="rec_province" name="rec_province">
+            <input type="hidden" id="rec_city" name="rec_city">
+            <input type="hidden" id="rec_area" name="rec_area">
+        <div class="name">
+            <p>详细地址：</p>
+            <input type="text" class="Arsinput needsclick" name="rec_deta">
+        </div>
+        <div class="name">
+            <p>联系电话：</p>
+            <input type="tel" class="Arsinput needsclick" name="rec_phone">
+        </div>
+        <button class="Ars_sub" id="ars_sub" >保存并使用</button>
+        </form>
+    </div>
+    <div class="msgContent">
+        <p class="msg"></p>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+            $('#ars_sub').click(function(){
+               var prov = $("#seachprov").find("option:selected").text();
+               var city = $("#seachcity").find("option:selected").text();
+               var area = $("#seachdistrict").find("option:selected").text();
+               $('#rec_province').val(prov);
+               $('#rec_city').val(city);
+               $('#rec_area').val(area);
+            });
+    });
+    </script>
+</body>
+</html>

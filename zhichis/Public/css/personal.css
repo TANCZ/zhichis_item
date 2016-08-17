@@ -1,0 +1,179 @@
+/*2016/6/10 11:53*/
+@charset "utf-8";
+
+body,h1,h2,h3,p,ul,ol,form,fieldset,figure,input{ margin: 0;padding: 0;}
+body{ background:#efeff4;font-family:"MicrosoftYaHei";}
+ul,ol{ list-style: outside none none;}
+a{ text-decoration: none;}
+figure,li,strong{ box-sizing: border-box;}
+.none{ display: none;}
+img{ display: block;max-width: 100%;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;}
+.zw{display: block;height: 17vmin;}
+.x_hide{ display: none;}
+.fl{ float: left; }
+.fr{ float: right; }
+
+.top{position:relative;width:100%;height:10vmin;background-color:#000000;}
+.top .headimg{position:absolute;top:1vmin;left:2vmin;height:8vmin;border-radius:50em;}
+.top .petname{position:absolute;left:13vmin;line-height:10vmin;color:#EFEAEA;font-family:"微软雅黑";font-size:3.5vmin;}
+.top .a_order{position:absolute;right:3vmin;line-height:10vmin;color:#EFEAEA;font-family:"微软雅黑";font-size:3.5vmin;}
+
+.header{
+	position: relative;
+}
+.header .bg{
+	width: 100%;
+	height: 100%;
+}
+.user{
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -15vmin;
+}
+.yuan img{
+	width: 30vmin;
+	height: 30vmin;
+	border-radius: 50%;
+	border:1vmin solid #fff;
+}
+
+.user_name{
+	font-size: 6vmin;
+	width: 100%;
+	display: inline-block;
+	color: #fff;
+	margin-top: 2vh;
+	text-align: center;
+}
+/*.user_name img{
+	display: inline-block;
+	width: 4vmin;
+	margin-left: 2vmin;
+}*/
+.content{
+	background:#fff;
+}
+.content li{
+	height: 15vmin;
+	line-height: 15vmin;
+	color:#000000;
+	font-size: 5vmin;
+	display: block;
+	text-align: center;
+	margin-top:2vw;
+}
+.content a:hover{
+	background: #eee;
+}
+.cont1,.cont2,.cont3,.cont4{
+	margin-top: 2vmin;
+	border-top: 0px solid #ccc;
+	border-bottom: 0px solid #ccc;
+}
+.cont1 img,.cont2 img,.cont3 img{
+	display: inline-block;
+	width: 7vmin;
+}
+.cont1{ background:#fff;}
+.cont1 .text{
+	display: inline-block;
+	height: 15vmin;
+	line-height: 15vmin;
+	font-size: 4vmin; 
+	text-indent: 7vmin;
+	background-size: 35%;
+}
+.cont1 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:5vmin 5vmin 0 0;
+	 color:#646363;
+	}	  
+.cont1 .text1 p{
+	width: 50vmin;
+	float: right;
+	text-align: right;
+	white-space: nowrap; 
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
+    overflow: hidden;
+}
+.cont2{ background:#fff;}
+.cont2 .text{
+	display: inline-block;
+	height: 15vmin;
+	line-height: 15vmin;
+	font-size: 4vmin; 
+	text-indent: 7vmin;
+	background-size: 35%;
+}
+.cont2 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:5vmin 5vmin 0 0;
+	 color:#646363;
+	}
+.cont2 .text1 p{
+	width: 50vmin;
+	float: right;
+	text-align: right;
+	white-space: nowrap; 
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
+    overflow: hidden;
+}
+
+.cont3{ background:#fff;}
+.cont3 .text{
+	display: inline-block;
+	height: 15vmin;
+	line-height: 15vmin;
+	font-size: 4vmin;
+	text-indent: 7vmin;
+	background-size: 35%;
+	
+}
+.cont3 .text1{
+	 float:right;	
+	 font-size: 4vmin;
+	 padding:5vmin 5vmin 0 0;
+	 color:#646363;
+	}
+.cont3 .text1 p{
+	width: 50vmin;
+	text-align: right;
+	
+	/*white-space: nowrap; 
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis;*/
+	overflow: hidden; 
+    }
+
+.cont4{ background:#fff; margin-bottom:50vmin;}
+.cont4 .text{
+	display: inline-block;
+	height: 15vmin;
+	line-height: 15vmin;
+	font-size: 4vmin;
+	text-indent: 7vmin;
+	background-size: 35%;
+	
+}
+.cont4 .text1{
+	float:right;	
+	font-size: 4vmin;
+	padding:5vmin 5vmin 0 0;
+	color:#646363;
+	}
+
+.text a{
+	color: #000000;
+}
+
+@media all and (orientation : landscape){
+	.user{
+		top: 30%;
+	}
+}

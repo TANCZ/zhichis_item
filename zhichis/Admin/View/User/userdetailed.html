@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>详细信息</title>
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__PUBLIC__/js/bootstrap.min.js">
+	<link rel="stylesheet" href="<?php echo ADMIN_CSS_URL?>main.css">
+	<script src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+	<style type="text/css">
+		.al{
+			text-align:right;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h3 align="center">详细信息(view)</h3>
+		<table class="table table-hover table-bordered">
+			<tr class="active">
+				<td colspan="4" align="center">基本信息</td>
+			</tr>
+			<tr>
+				<td class="al">编号：</td>
+				<td>{$rs.user_id}</td>
+				<td class="al">昵称：</td>
+				<td>{$rs.user_nickname}</td>
+			</tr>
+			<tr>
+				<td class="al">UnionID：</td>
+				<td>{$rs.user_unionid}</td>
+				<td class="al">OpenID：</td>
+				<td>{$rs.user_openid}</td>
+			</tr>
+			<tr>
+				<td class="al">用户性别：</td>
+				<td>{:($rs[user_sex] == 1) ? "男" : "女"}</td>
+				<td class="al">地址：</td>
+				<td>{$rs.user_aera}</td>
+			</tr>
+			<tr>
+				<td class="al">手机：</td>
+				<td>{$rs.user_phone}</td>
+				<td class="al">消费金额：</td>
+				<td>{$rs.user_total}</td>
+			</tr>
+			<tr>
+				<td class="al">注册时间：</td>
+				<td colspan="3">{$rs.user_regtime|strtotime|date='Y-m-d',###}</td>
+			</tr>
+			<tr class="active">
+				<td colspan="4" align="center">默认收货地址</td>
+			</tr>
+			<tr>
+				<td class="al">收货人：</td>
+				<td>{$rs.rec_name}</td>
+				<td class="al">联系电话：</td>
+				<td>{$rs.rec_phone}</td>
+			</tr>
+			<tr>
+				<td class="al">所在城市：</td>
+				<td>{$rs.user_aera}</td>
+				<td class="al">邮政编码：</td>
+				<td>{$rs.rec_zipcode}</td>
+			</tr>
+			<tr>
+				<td class="al">详细地址：</td>
+				<td colspan="3">{$rs.rec_area}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

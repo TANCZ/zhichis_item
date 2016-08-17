@@ -1,0 +1,24 @@
+[ 2016-06-08T10:54:11+08:00 ] ::1 /lvnong/lvnong_item/lvnong/index.php/GROUP_NAME/Admin/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:GROUP_NAME
+
+[ 2016-06-08T11:01:29+08:00 ] ::1 /lvnong/lvnong_item/lvnong/index.php/GROUP_NAME/Admin/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:GROUP_NAME
+
+[ 2016-06-08T11:02:06+08:00 ] ::1 /lvnong/lvnong_item/lvnong/index.php/GROUP_NAME/Admin/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:GROUP_NAME
+
+[ 2016-06-08T11:02:59+08:00 ] ::1 /lvnong/lvnong_item/lvnong/index.php/group_name/Admin/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Group_name
+

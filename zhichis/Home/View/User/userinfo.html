@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name = "format-detection" content="telephone = no" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta charset="UTF-8">
+	<title>个人资料</title>
+	<link rel="stylesheet" href="__PUBLIC__/css/personal.css">
+	<script type="text/javascript" src="__PUBLIC__/js/zhichis.js"></script>
+</head>
+<body>
+<div class="header">
+		<img class="bg" src="__PUBLIC__/img/order1.jpg" alt="">
+	<div class="user">
+		<div class="yuan">
+			<img src="{:session("wx_headimgurl")}" alt="">
+		</div>
+		<div class="user_name">
+			<strong>{:session("wx_nickname")}</strong>
+		</div>
+	</div>
+</div>
+
+	<div class="content">
+		<ul>
+			<li>个人资料</li>
+		</ul>
+	</div>
+    
+	<div class="cont1">
+		<div class="text">收货人姓名:</div>
+        <div class="text1"><p>{$rs.rec_name}</p></div>
+	</div>
+    
+	<div class="cont2">
+		<div class="text">联系电话:</div>
+        <div class="text1"><p>{$rs.rec_phone}</p></div>
+	</div>
+    
+	<div class="cont3">
+		<div class="text">详细地址:</div>
+        <div class="text1" id="text3"><p>{$rs.rec_province}{$rs.rec_city}{$rs.rec_area}{$rs.rec_deta}</p></div>
+    </div>
+    
+    <div class="cont4">
+		<div class="text">购买记录:</div>
+        <div class="text1">0次</div>
+	</div>
+
+	
+    
+</body>
+</html>

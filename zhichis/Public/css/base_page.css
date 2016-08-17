@@ -1,0 +1,245 @@
+@charset "utf-8";
+html{
+    font-size: 62.5%;
+}
+body,h1,h2,h3,p,ul,ol,form,fieldset,figure,input,i,em,input,textarea{ margin: 0;padding: 0;}
+body{ font-family:"MicrosoftYaHei";background: #efeff4;}
+ul,ol{ list-style: outside none none;}
+a{ text-decoration: none;}
+figure,li,textarea{ box-sizing: border-box;}
+.none{ display: none;}
+em,strong,i,span,div{font-style: normal;}
+img{ display: block;max-width: 100%;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;}
+.x_hide{ display: none;}
+.fl{ float: left; }
+.fr{ float: right; }
+.zw{display: block;height: 15vw;margin-top: 2vw}
+
+/***** 初始化 *****/
+
+.container1{
+    margin-top: 2vw;
+}
+.container1 .content{
+    width: 100vw;
+    background: #fff;
+}
+.container1-text{
+    font-size: 4vw;
+    color: #222222;
+    padding: 3vw 0 2vw 0;
+    border-bottom: 1px solid #b2b2b2;
+}
+.container1-text .p1{
+    margin-left: 4vw;
+}
+.container1-text .fs{
+    margin-left: 4vw;
+}
+.container1-text .ls{
+    margin-left: 1vw;
+}
+.container1-text .p2{
+    display: inline-block;
+    margin-top: 1vw;
+}
+.container1-text .p2 span{
+    color: #d73b51;
+    font-size: 4.8vw;
+}
+.container1-input{
+    padding: 2vw 0;
+    font-size: 0;
+    margin-left: 15vw;
+}
+.container1-input span{
+    display: inline-block;
+    background: #ededed;
+    width: 10vw;
+    height: 10vw;
+    line-height: 9.5vw;
+    text-align: center;
+    font-size: 5vw;
+}
+.container1-input input{
+    -webkit-appearance:none;
+    width: 20vw;
+    height: 9.4vw;
+    border: 1px solid #d6d7dc;
+    border-radius: 0;
+    text-align: center;
+    font-size: 6vw;
+    transform: translateY(9%);
+}
+
+/***** container1 *****/
+
+.container2{
+    margin-top: 2vw;
+}
+.container2 .content{
+    width: 100vw;
+    background: #fff;
+}
+.choose-name{
+    font-size: 4vw;
+    padding: 2vw 0;
+    border-bottom: 1px solid #d6d7dc;
+    text-indent: 4vw;
+}
+input[type=radio]{
+    visibility: hidden;
+}
+.container2 .choose-list{
+    height: 20vw;
+    position: relative;
+}
+.container2 label{
+    border: 1px solid #d73b51;
+    border-radius: 3px;
+    width: 25vw;
+    height: 8vw;
+    line-height: 8vw;
+    text-align: center;
+    font-size: 3.8vw;
+    display: inline-block;
+    transform: translateY(60%);
+}
+.container2 .lab2{
+    margin-left: 5vw;
+}
+#rad1:checked + label{
+    background: #d73b51;
+    color: #fff;
+}
+#rad2:checked + label{
+    background: #d73b51;
+    color: #fff;
+}
+
+/***** container2 *****/
+
+.container3{
+    width: 100vw;
+    margin-top: 2vw;
+}
+.container3 .content{
+    background: #fff;
+}
+.con3-title{
+    font-size: 4vw;
+    margin-left: 4vw;
+    padding: 2vw 0;
+}
+
+/***** container3 *****/
+
+.container4{
+    width: 100vw;
+    margin-top: 2vw;
+}
+.container4 .content{
+    background: #fff;
+    font-size: 0;
+    text-align: center;
+}
+.product{
+    display: inline-block;
+    font-size: 4vw;
+    width: 58vw;
+    color: #df6274;
+}
+.gotoIndex{
+    display: inline-block;
+    font-size: 4vw;
+    width: 41vw;
+    border-left: 1px solid #efeff4;
+    border-bottom: 1px solid #efeff4;
+    border-radius: 3px;
+    padding: 2vw 0;
+    color: #222222;
+}
+.page-img{
+    margin: 2vw auto 0 auto;
+}
+
+/***** container4 *****/
+
+.m-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    background: #f4f4f4;
+    width: 100vw;
+    height: 15vw;
+}
+.m-footer .content{
+    width: 90vw;
+    margin: 0 auto;
+}
+.buyCart,.personal{
+    font-size: 4vw;
+    display: inline-block;
+    width: 42vw;
+    height: 8vw;
+    line-height: 8vw;
+    transform: translateY(35%);
+    border-radius: 3px;
+    letter-spacing: 0.2vw;
+    text-align: center;
+}
+.buyCart{
+    color: #fff;
+    border: 1px solid #d73b51;
+    background: #d73b51;
+}
+.personal{
+    border: 1px solid #d73b51;
+    border-radius: 3px;
+    margin-left: 4vw;
+    background: #fff;
+    color: #222;
+}
+.subDiv,.reAdd{
+    font-size: 4vw;
+    display: inline-block;
+    width: 42vw;
+    height: 8vw;
+    line-height: 8vw;
+    transform: translateY(35%);
+    border-radius: 3px;
+    letter-spacing: 0.2vw;
+    text-align: center;
+}
+.subDiv{
+    color: #fff;
+    border: 1px solid #d73b51;
+    background: #d73b51;
+}
+.reAdd{
+    border: 1px solid #d73b51;
+    border-radius: 3px;
+    margin-left: 4vw;
+    background: #fff;
+    color: #222;
+}
+.ps{
+    position: absolute;
+    left: 4vw;
+    top: 13vw;
+}
+.arsBox{
+    float: left;
+    font-size: 4vw;
+    background: #d73b51;
+    width: 45vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 3px;
+    color: #fff;
+    margin: 0 auto;
+    transform: translateY(28%);
+    text-align: center;
+}

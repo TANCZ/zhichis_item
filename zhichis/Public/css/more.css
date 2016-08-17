@@ -1,0 +1,140 @@
+@charset "utf-8";
+html{ font-size: 62.5%; }
+body,h1,h2,h3,p,ul,ol,form,fieldset,figure,input,i,em,input,textarea{ margin: 0;padding: 0;}
+body{ font-family:"MicrosoftYaHei";background: #efeff4;}
+ul,ol{ list-style: outside none none;}
+a{ text-decoration: none;}
+p{color: #222;}
+figure,li,textarea{ box-sizing: border-box;}
+.none{ display: none;}
+em,strong,i,span,div{font-style: normal;}
+img{ display: block;max-width: 100%;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;}
+.x_hide{ display: none;}
+.fl{ float: left; }
+.fr{ float: right; }
+.zw{display: block;height: 15vw;margin-top: 2vw}
+
+/***** 初始化 *****/
+
+.m-header{
+    background: #fff;
+}
+.m-header-content{
+    padding-top: 2vw;
+    font-size: 0;
+    height: 51vw;
+}
+.m-header-lt{
+    background: #8dc44e;
+    width: 34vw;
+    margin-left: 2vw;
+    position: relative;
+    display: inline-block;
+}
+.m-header-lt h2{
+    color: #fff;
+    text-align: center;
+    padding-top: 6vw;
+    font-size: 5vw;
+}
+.m-header-lt p{
+    text-align: center;
+    color: #636363;
+    display: inline-block;
+    background: #fff;
+    width: 32vw;
+    height: 6vw;
+    line-height: 6vw;
+    position: absolute;
+    left: 50%;
+    margin-left: -16vw;
+    margin-top: 2vw;
+    font-size: 3vw;
+}
+.m-header-lt img{
+    padding: 15vw 2vw 2vw 2vw;
+    box-sizing: border-box;
+}
+/*left*/
+.m-header-rt{
+    float: right;
+    width: 62vw;
+}
+.m-header-rt-box{
+    width: 30vw;
+    font-size: 3.5vw;
+    display: inline-block;
+    text-align: center;
+}
+.m-header-rt-box p{
+    padding: 2vw 0;
+}
+.pd-l{
+    margin-left: 2vw;
+}
+/*right*/
+
+/*header over*/
+
+.container{
+    background: #fff;
+    margin-top: 1vw;
+    font-size: 0;
+}
+.container-box{
+    width: 32vw;
+    padding-left: 1vw;
+    display: inline-block;
+}
+.container-box p{
+    padding: 2vw 0;
+    font-size: 3.5vw;
+    text-align: center;
+}
+.img-list{
+    margin-top: 5vw;
+}
+.img-list .tstj{
+    width: 22vw;
+    margin-left: 3vw;
+}
+
+/***** container4 *****/
+
+.m-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    background: #f4f4f4;
+    width: 100vw;
+    height: 15vw;
+}
+.m-footer .content{
+    width: 90vw;
+    margin: 0 auto;
+}
+.buyCart,.personal{
+    font-size: 4vw;
+    display: inline-block;
+    width: 42vw;
+    height: 8vw;
+    line-height: 8vw;
+    transform: translateY(35%);
+    border-radius: 3px;
+    letter-spacing: 0.2vw;
+    text-align: center;
+}
+.buyCart{
+    color: #fff;
+    border: 1px solid #d73b51;
+    background: #d73b51;
+}
+.personal{
+    border: 1px solid #d73b51;
+    border-radius: 3px;
+    margin-left: 4vw;
+    background: #fff;
+    color: #222;
+}

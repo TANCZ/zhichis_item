@@ -1,0 +1,91 @@
+[ 2016-08-13T12:05:23+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.011000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015000s ]
+
+[ 2016-08-13T12:06:13+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-13T12:06:40+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-13T12:06:43+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-13T12:06:46+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-13T12:10:52+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-08-13T12:12:58+08:00 ] ::1 /zhichis_item/zhichis/admin/menu/set_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Constant appid already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 5 行.
+NOTIC: [8] Constant appsecret already defined D:\web\zhichis_item\zhichis\Admin\Controller\MenuController.class.php 第 6 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+

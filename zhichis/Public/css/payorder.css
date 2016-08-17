@@ -1,0 +1,75 @@
+*{ margin:0 auto;padding:0;font-family:"微软雅黑";}
+a{ text-decoration:none;}
+ul{ list-style:none;}
+ol{ list-style:none;}
+body{ background:#efeff4;}
+.clearfix{ content: ".";display: block;clear: both;height: 0;visibility: hidden;} /* 清理浮动 */
+
+/* 头部 
+.navbar-header{ }
+.navbar-header a{ font-size:4vw;}
+.navbar-header span{ color:#FFFFFF; margin-left:18vw; font-size:5.5vw; padding-top:3.5vw; display:inline-block;}
+*/
+
+/* 订单 */
+
+
+.order_02{ margin-top:2vw; padding:0 2vw; background:#FFFFFF;}
+.order_02 ul li{ float:left;}
+.order_02 .li1{ font-size:3vw;}
+.order_02 .li2{ font-size:3vw; color:#b4b4b4; margin-left:1vw;}
+.order_02 .li3{ font-size:3vw; float:right; margin-right:1vw;}
+.order_02 .li4{ font-size:3vw; color:#d73b51; float:right;}
+.order_02 img{ width:25vw; float:left; margin-top:1vw;}
+.order_02 ol{ float:left;margin-left:5vw;}
+.order_02 .ol1{ font-weight:bold; font-size:5vw;}
+.order_02 .ol2{ font-size:3vw; margin-top:1vw;}
+.order_02 .ol3{ font-size:3vw; color:#b4b4b4; margin-top:3vw;}
+.order_02 .ol4{ font-size:3vw; color:#d73b51; margin-top:3vw;}
+.order_02 .ol4 p{ float:left;}
+.order_02 .ol5{ font-size:4vw; color:#000000; float:right; margin-left:15vw;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*没有小于768px，是因为Bootstrap3以移动端优先设计*/
+
+/* 小屏幕（平板，大于等于768px） */
+@media (min-width: 768px) {
+	.navbar-header span{
+		 font-size:4vw;
+		}
+}
+
+/* 中等屏幕（桌面显示器，大于等于992px） */
+@media (min-width: 992px) {
+	.navbar-header span{
+		 font-size:4vw;
+		 }
+}
+
+/* 大屏幕（大桌面显示器，大于等于1200px） */
+@media (min-width: 1200px) {
+    .navbar-header span{
+		 font-size:4vw;
+		}
+}
+
+
+
+
+

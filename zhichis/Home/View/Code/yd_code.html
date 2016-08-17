@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>舌尖上的鱼糕</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/base_page.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/temp.css"/>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/fastclick.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/Area.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/AreaData_min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/zhichis.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            $('#ars_sub').click(function(){
+               var prov = $("#seachprov").find("option:selected").text();
+               var city = $("#seachcity").find("option:selected").text();
+               var area = $("#seachdistrict").find("option:selected").text();
+               $('#rec_province').val(prov);
+               $('#rec_city').val(city);
+               $('#rec_area').val(area);
+            });
+
+            initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '43', '0', '0');
+        });
+        //得到地区码
+        function getAreaID(){
+            var area = 0;
+            if($("#seachdistrict").val() != "0"){
+                area = $("#seachdistrict").val();
+            }else if ($("#seachcity").val() != "0"){
+                area = $("#seachcity").val();
+            }else{
+                area = $("#seachprov").val();
+            }
+            return area;
+        }
+
+        function showAreaID() {
+            //地区码
+            var areaID = getAreaID();
+            //地区名
+            var areaName = getAreaNamebyID(areaID) ;
+            alert("您选择的地区码：" + areaID + "      地区名：" + areaName);
+        }
+
+        //根据地区码查询地区名
+        function getAreaNamebyID(areaID){
+            var areaName = "";
+            if(areaID.length == 2){
+                areaName = area_array[areaID];
+            }else if(areaID.length == 4){
+                var index1 = areaID.substring(0, 2);
+                areaName = area_array[index1] + " " + sub_array[index1][areaID];
+            }else if(areaID.length == 6){
+                var index1 = areaID.substring(0, 2);
+                var index2 = areaID.substring(0, 4);
+                areaName = area_array[index1] + " " + sub_array[index1][index2] + " " + sub_arr[index2][areaID];
+            }
+            return areaName;
+        }
+    </script>
+</head>
+<body>
+
+<!-- 轮播 -->
+<div class="banner">
+    <div class='swipe'>
+        <ul id='slider'>
+            <li style='display:block'><img src="__PUBLIC__/img/banner_yd.jpg" alt="轮播图一" /></li>
+        </ul>
+    </div>
+</div>
+
+<!--container1-->
+<div class="container1">
+    <div class="content">
+        <div class="container1-text">
+            <p class="p1">知吃氏 -  石首笔架鱼胶（礼品鱼胶）</p>
+            <p class="p2 fs">促销价：<span>￥365.00</span></p>
+            <p class="p2 ls">原价：<s>￥508.00</s></p>
+            <p class="p2 ls">已销：898件</p>
+        </div>
+        <div class="container1-input">
+            <span class="pr-min">-</span>
+            <input type="hidden" id="pro_id" name="pro_id" value="{$rs.pro_id}">
+            <input class="pr-num" type="text" name="number" value="1"/>
+            <span class="pr-add">+</span>
+        </div>
+    </div>
+</div>
+
+<!--container2-->
+<div class="container2">
+    <div class="content">
+        <p class="choose-name">选择规格</p>
+        <div class="choose-list">
+            <input type="radio" name="choose" id="rad1" checked/><label class="lab1" for="rad1">125g</label>
+        </div>
+    </div>
+</div>
+
+<!--container3-->
+<div class="container3">
+    <div class="content">
+        <p class="con3-title">图文详情</p>
+    </div>
+</div>
+
+<!--container4-->
+<div class="container4">
+    <div class="content">
+        <div class="product">商品介绍</div>
+        <a href="__APP__/HOME/Index/index.html"><div class="gotoIndex">返回首页</div></a>
+        <img class="page-img" src="__PUBLIC__/img/yj_code_page.jpg" alt=""/>
+    </div>
+</div>
+
+<div class="zwz" style="height: 16vw;display: block"></div>
+
+<!--隐藏-->
+<div class="zhemu">
+</div>
+<div class="addNewArs">
+        <form  method="POST" action="__URL__/addyd">
+        <header class="newArs-title"><span>新增地址<img id="off" src="__PUBLIC__/img/off-btn.png" alt=""/></span></header>
+        <div class="name">
+            <p>收 货 人：</p>
+            <input type="text" class="Arsinput needsclick" name="rec_name">
+        </div>
+        <fieldset id="city_china">
+            <div class="name">
+                <p>省 / 市：</p>
+                <select id="seachprov" name="rec_provinceid" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>
+            </div>
+            <div class="name">
+                <p>市 / 区：</p>
+                <select id="seachcity" name="rec_cityid" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"></select>
+            </div>
+            <div class="name">
+                <p>县 / 区：</p>
+                <select id="seachdistrict" name="rec_areaid"></select>
+            </div>
+        </fieldset>
+            <input type="hidden" name="code" value="{$_GET['code']}">
+            <input type="hidden" id="rec_province" name="rec_province">
+            <input type="hidden" id="rec_city" name="rec_city">
+            <input type="hidden" id="rec_area" name="rec_area">
+        <div class="name">
+            <p>详细地址：</p>
+            <input type="text" class="Arsinput needsclick" name="rec_deta">
+        </div>
+        <div class="name">
+            <p>联系电话：</p>
+            <input type="tel" class="Arsinput needsclick" name="rec_phone">
+        </div>
+        <button class="Ars_sub" id="ars_sub" >保存并使用</button>
+        </form>
+</div>
+
+<!--m-footer-->
+<footer class="m-footer">
+    <form method="POST" action="__URL__/addorder">
+        <div class="content">
+            <input type="hidden" name="rec" id="rec" value="{$_GET['rec']}">
+            <input type="hidden" name="code" value="{$_GET['code']}">
+            <input type="hidden" name="pro_id" id="pro_id" value="5">
+            <button class="subDiv">提交订单</button>
+            <div class="reAdd">填写地址</div>
+        </div>
+    </form>
+</footer>
+
+<div class="msgContent">
+    <p class="msg"></p>
+</div>
+
+</body>
+<script>
+    $(function(){
+        $('.reAdd').on("click",function(){
+            $('.zhemu').css({'display':'block'});
+            $('.addNewArs').css({'display':'block'}).removeClass('animated fadeOutDown').addClass('animated fadeInUp');
+        });
+        $('.subDiv').click(function(){
+            if($("#rec").val() == ''){
+                $('.msgContent').show(200).delay(1000).hide(200);
+                $('.msg').html('请先填写收货地址！');
+                return false;
+            }
+            return true;
+        });
+    });
+</script>
+</html>
