@@ -56,8 +56,8 @@
                 <td colspan="4" bgcolor="#FFFFFF" class="title active" align="center">订单信息</td>
             </tr>
             <tr class="title active">
-                <td bgcolor="#FFFFFF" width="40">编号</td>
                 <td bgcolor="#FFFFFF" width="40">单号</td>
+                <td bgcolor="#FFFFFF" width="40">兑换码</td>
                 <td bgcolor="#FFFFFF" width="40">产品</td>
                 <td bgcolor="#FFFFFF" width="100">时间</td>
                 <td bgcolor="#FFFFFF" width="80">是否发货</td>
@@ -66,12 +66,12 @@
             </tr>
             <volist name="select" id="list" empty="$empty">
                 <tr class="content" align="center">
-                    <td bgcolor="#FFFFFF">&nbsp;{$list.order_id}</td>
                     <td bgcolor="#FFFFFF">&nbsp;{$list.order_number}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.red_code}</td>
                     <td bgcolor="#FFFFFF">&nbsp;{$list.pro_name}</td>
                     <td bgcolor="#FFFFFF">&nbsp;{$list.order_time|strtotime|date='Y-m-d',###}</td>
                     <td bgcolor="#FFFFFF">&nbsp;{:($list[order_sub_issend] == 1 ) ? "已发货" : "未发货"}</td>
-                    <td bgcolor="#FFFFFF">&nbsp;{$list.rec_data|subtext=10}</td>
+                    <td bgcolor="#FFFFFF">&nbsp;{$list.rec_deta|subtext=10}</td>
                     <td bgcolor="#FFFFFF" id="oper">&nbsp;
                         <eq name="list.order_sub_ispay" value="1">
                             <eq name="list.order_sub_issend" value="0">
