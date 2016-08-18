@@ -11,6 +11,7 @@ class OrderController extends Controller {
     }
 
     public function car(){
+        //嘿嘿嘿
     	$this -> display();
     }
 
