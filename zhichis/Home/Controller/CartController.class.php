@@ -31,7 +31,7 @@ class CartController extends Controller
             ->field('sub.order_number,sub.pro_id,p.pro_name,p.pro_spec,p.pro_img,p.pro_price,sub.order_sub_number')
             ->select();
         $this->assign('select', $pro);
-        $this->assign('empty', '<div class="cont1"><p>购物车空空如也</p><p>来挑几件好货吧!</p></div><div class="cont2"><img src="http://zhichis.com/zhichis_item/zhichis/public/img/car.png" alt="购物车"/></div><div class="cont3"><a href="http://zhichis.com/zhichis_item/zhichis/home/index/index">亲,去看看商品吧!</a></div>');
+        $this->assign('empty', '<div class="cont1"><p>购物车空空如也！</p><p>来挑几件好货吧!</p></div><div class="cont2"><img src="http://zhichis.com/zhichis_item/zhichis/public/img/car.png" alt="购物车"/></div><div class="cont3"><a href="http://zhichis.com/zhichis_item/zhichis/home/index/index">亲,去看看商品吧!</a></div>');
         $this->display();
 
     }
