@@ -167,6 +167,9 @@
         	$this -> display();
         }
 
-
+        public function wsry(){
+            $this -> ShowPro('3');
+            $this -> display();
+        }
 
     }
