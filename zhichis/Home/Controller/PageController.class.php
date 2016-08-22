@@ -7,7 +7,7 @@
         public function _initialize(){
                 if(!isset($_SESSION['user_id'])){
                      //$this -> redirect(GROUP_NAME."/")
-                     $this->redirect(Home."/index/index");            
+                     $this->redirect(Home."/index/index");
                 }
         }
 
@@ -34,7 +34,7 @@
                     //添加详情
                     $sub = D('order_sub');
                     $subdata = array('order_number' => $orderid,'pro_id'=> $proid,'order_sub_number'=>$number,'order_sub_ispay'=> '0','order_sub_ispaytime'=>'','order_sub_issend'=>'0','order_sub_sendtime'=> '','order_sub_istake' => '0','order_sub_taketime'=>'','rec_id'=>'0','order_sub_sender'=>'','order_sub_sendcode' => '','order_buy' => '0');
-                    $result = $sub -> data($subdata) -> add();                
+                    $result = $sub -> data($subdata) -> add();
                     if($result){
                             $this-> redirect('cart/cart');
                     }
@@ -91,12 +91,12 @@
         public function ShowPro($id)
         {
             $list = M('pro');
-            
+
             $wh = array('pro_id' => $id);
 
             $rs = $list -> where($wh) -> field('pro_id,pro_name,pro_price,pro_spec,pro_num,pro_sales') -> find();
             $this -> assign('rs',$rs);
-            
+
         }
 
         //黄桃10斤 - 3.3两 - 半斤
